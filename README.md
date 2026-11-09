@@ -5,7 +5,7 @@ vytlačí QR karty a na konci hry ukáže výsledkovú tabuľu.
 
 **Živá verzia:** https://gagls-qr-quest.github.io/editor/
 
-**Autor:** _(doplň meno)_ · **Rola:** Editor · Mentoring TUKE × GAGLS 2026/27
+**Autor:** Alex  · **Rola:** Editor · Mentoring TUKE × GAGLS 2026/27
 
 ## Čo modul robí
 
