@@ -9,7 +9,7 @@ vytlačí QR karty a na konci hry ukáže výsledkovú tabuľu.
 
 ## Čo modul robí
 
-_(Doplň jednou vetou na 2. stretnutí, na konci roka prepíš ako portfólio – pozri nižšie.)_
+Tento modul slúži na tvorbu a správu questov, stanovíšť, úloh a tlač QR kariet pre hru.
 
 ## Ako na ňom pracovať
 
