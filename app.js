@@ -1,13 +1,4 @@
-// Modul EDITOR – tvorba questu, QR karty a výsledky
-// ------------------------------------------------------------------
-// Spoločné funkcie (načítanie questu, adresy, kľúče úložiska) sú v shared/v1/qrq.js.
-// Formát dát: https://github.com/gagls-qr-quest/gagls-qr-quest.github.io/blob/main/FORMAT.md
-//
-// Editor vyrába súbor quest.json. Rozpracovaný quest ukladá do localStorage
-// pod kľúčom KEYS.draft – hra a mapa ho potom otvoria s ?q=draft.
-// ------------------------------------------------------------------
 // Modul EDITOR - tvorba questu a export do quest.json
-
 document.getElementById('quest-form').addEventListener('submit', function(event) {
   event.preventDefault();
 
@@ -34,4 +25,3 @@ document.getElementById('quest-form').addEventListener('submit', function(event)
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 });
-spusti();
