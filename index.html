@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Editor – QR Quest</title>
-  <!-- Spoločný vzhľad všetkých modulov (farby, tlačidlá, karty) -->
+  <title>Editor · QR Quest</title>
   <link rel="stylesheet" href="https://gagls-qr-quest.github.io/shared/v1/style.css">
-  <!-- Vlastný vzhľad tohto modulu -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,7 +15,33 @@
 
   <main class="qrq-main qrq-main--wide">
     <section id="obsah" class="qrq-card" aria-live="polite">
-      <p class="qrq-muted">Načítavam…</p>
+      <h2>Základné údaje questu</h2>
+      <form id="quest-form" style="display: flex; flex-direction: column; gap: 12px;">
+        <label>
+          <strong>ID questu</strong><br>
+          <input type="text" id="quest-id" placeholder="napr. skola-2026" required style="width: 100%; padding: 8px; margin-top: 4px;">
+        </label>
+
+        <label>
+          <strong>Názov</strong><br>
+          <input type="text" id="quest-title" placeholder="napr. Tajomstvo školy" required style="width: 100%; padding: 8px; margin-top: 4px;">
+        </label>
+
+        <label>
+          <strong>Úvod</strong><br>
+          <textarea id="quest-intro" rows="3" placeholder="Krátky úvod pre hráčov..." required style="width: 100%; padding: 8px; margin-top: 4px;"></textarea>
+        </label>
+
+        <label>
+          <strong>Režim</strong><br>
+          <select id="quest-mode" style="width: 100%; padding: 8px; margin-top: 4px;">
+            <option value="free">free</option>
+            <option value="linear">linear</option>
+          </select>
+        </label>
+
+        <button type="submit" class="qrq-btn" style="padding: 10px; cursor: pointer; margin-top: 8px;">Stiahnuť quest.json</button>
+      </form>
     </section>
   </main>
 
