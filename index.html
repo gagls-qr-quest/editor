@@ -16,31 +16,23 @@
   <main class="qrq-main qrq-main--wide">
     <section id="obsah" class="qrq-card" aria-live="polite">
       <h2>Základné údaje questu</h2>
-      <form id="quest-form" style="display: flex; flex-direction: column; gap: 12px;">
-        <label>
-          <strong>ID questu</strong><br>
-          <input type="text" id="quest-id" placeholder="napr. skola-2026" required style="width: 100%; padding: 8px; margin-top: 4px;">
-        </label>
+      <form id="quest-form">
+        <label class="qrq-label" for="quest-id">ID questu</label>
+        <input type="text" id="quest-id" class="qrq-input" placeholder="napr. skola-2026" required>
 
-        <label>
-          <strong>Názov</strong><br>
-          <input type="text" id="quest-title" placeholder="napr. Tajomstvo školy" required style="width: 100%; padding: 8px; margin-top: 4px;">
-        </label>
+        <label class="qrq-label" for="quest-title">Názov</label>
+        <input type="text" id="quest-title" class="qrq-input" placeholder="napr. Tajomstvo školy" required>
 
-        <label>
-          <strong>Úvod</strong><br>
-          <textarea id="quest-intro" rows="3" placeholder="Krátky úvod pre hráčov..." required style="width: 100%; padding: 8px; margin-top: 4px;"></textarea>
-        </label>
+        <label class="qrq-label" for="quest-intro">Úvod</label>
+        <textarea id="quest-intro" class="qrq-input" rows="3" placeholder="Krátky úvod pre hráčov..." required></textarea>
 
-        <label>
-          <strong>Režim</strong><br>
-          <select id="quest-mode" style="width: 100%; padding: 8px; margin-top: 4px;">
-            <option value="free">free</option>
-            <option value="linear">linear</option>
-          </select>
-        </label>
+        <label class="qrq-label" for="quest-mode">Režim</label>
+        <select id="quest-mode" class="qrq-input">
+          <option value="free">free</option>
+          <option value="linear">linear</option>
+        </select>
 
-        <button type="submit" class="qrq-btn" style="padding: 10px; cursor: pointer; margin-top: 8px;">Stiahnuť quest.json</button>
+        <button type="submit" class="qrq-btn">Stiahnuť quest.json</button>
       </form>
     </section>
   </main>
