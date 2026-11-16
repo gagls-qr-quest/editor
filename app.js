@@ -6,37 +6,32 @@
 // Editor vyrába súbor quest.json. Rozpracovaný quest ukladá do localStorage
 // pod kľúčom KEYS.draft – hra a mapa ho potom otvoria s ?q=draft.
 // ------------------------------------------------------------------
-import { loadQuest } from 'https://gagls-qr-quest.github.io/shared/v1/qrq.js';
+// Modul EDITOR - tvorba questu a export do quest.json
 
-const obsah = document.querySelector('#obsah');
+document.getElementById('quest-form').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-/** Vytvorí odsek s textom (cez textContent, nie innerHTML). */
-function odsek(text, trieda = '') {
-  const p = document.createElement('p');
-  p.textContent = text;
-  if (trieda) p.className = trieda;
-  return p;
-}
+  const questData = {
+    format: "qrq-1",
+    id: document.getElementById('quest-id').value.trim(),
+    title: document.getElementById('quest-title').value.trim(),
+    intro: document.getElementById('quest-intro').value.trim(),
+    mode: document.getElementById('quest-mode').value,
+    floors: [],
+    stations: []
+  };
 
-async function spusti() {
-  try {
-    const quest = await loadQuest('ukazka');
+  const jsonString = JSON.stringify(questData, null, 2);
+  const blob = new Blob([jsonString], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
 
-    const json = document.createElement('pre');
-    json.className = 'qrq-code';
-    json.textContent = JSON.stringify(quest, null, 2);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "quest.json";
+  document.body.appendChild(link);
+  link.click();
 
-    // TODO (úloha z 3. stretnutia): formulár pre základné údaje questu
-    //   (id, názov, úvod, režim) a tlačidlo „Stiahnuť quest.json“.
-    obsah.replaceChildren(
-      odsek(`Ukážkový quest „${quest.title}“ má ${quest.floors.length} poschodia a počet stanovíšť ${quest.stations.length}.`),
-      odsek('Takto vyzerá v JSON – presne tento súbor bude editor vyrábať:', 'qrq-muted'),
-      json,
-    );
-  } catch (chyba) {
-    obsah.replaceChildren(odsek(chyba.message, 'qrq-error'));
-    console.error(chyba);
-  }
-}
-
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
 spusti();
