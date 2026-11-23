@@ -14,6 +14,7 @@
   </header>
 
   <main class="qrq-main qrq-main--wide">
+    <!-- Karta 1: Základné údaje questu -->
     <section id="obsah" class="qrq-card" aria-live="polite">
       <h2>Základné údaje questu</h2>
       <form id="quest-form">
@@ -32,8 +33,62 @@
           <option value="linear">linear</option>
         </select>
 
-        <button type="submit" class="qrq-btn">Stiahnuť quest.json</button>
+        <div class="editor-actions">
+          <button type="button" id="btn-load-sample" class="qrq-btn qrq-btn--ghost">Načítať ukážku</button>
+          <button type="submit" class="qrq-btn">Stiahnuť quest.json</button>
+        </div>
       </form>
+    </section>
+
+    <!-- Karta 2: Formulár pre pridanie / úpravu stanovišťa -->
+    <section class="qrq-card">
+      <h2 id="station-form-title">Stanovište</h2>
+      <form id="station-form">
+        <div class="editor-row">
+          <div class="editor-col">
+            <label class="qrq-label" for="station-id">ID</label>
+            <input type="text" id="station-id" class="qrq-input" placeholder="napr. test" required>
+          </div>
+          <div class="editor-col editor-col--grow">
+            <label class="qrq-label" for="station-name">Názov</label>
+            <input type="text" id="station-name" class="qrq-input" placeholder="napr. Testovacia miestnosť" required>
+          </div>
+        </div>
+
+        <label class="qrq-label" for="station-floor">Poschodie</label>
+        <select id="station-floor" class="qrq-input">
+          <option value="p0">Prízemie (p0)</option>
+          <option value="p1">1. poschodie (p1)</option>
+        </select>
+
+        <div class="editor-row">
+          <div class="editor-col">
+            <label class="qrq-label" for="station-x">x (%)</label>
+            <input type="number" step="any" id="station-x" class="qrq-input" value="50" required>
+          </div>
+          <div class="editor-col">
+            <label class="qrq-label" for="station-y">y (%)</label>
+            <input type="number" step="any" id="station-y" class="qrq-input" value="50" required>
+          </div>
+          <div class="editor-col">
+            <label class="qrq-label" for="station-points">Body</label>
+            <input type="number" id="station-points" class="qrq-input" value="10" required>
+          </div>
+        </div>
+
+        <div class="editor-actions">
+          <button type="submit" id="btn-save-station" class="qrq-btn">Pridať stanovište</button>
+          <button type="button" id="btn-cancel-edit" class="qrq-btn qrq-btn--ghost" hidden>Zrušiť</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Karta 3: Zoznam stanovíšť -->
+    <section class="qrq-card">
+      <h2 id="stations-heading">Stanovištia (0)</h2>
+      <div id="stations-list" class="stations-list">
+        <p class="stations-empty">Zatiaľ nie sú pridané žiadne stanovištia.</p>
+      </div>
     </section>
   </main>
 
