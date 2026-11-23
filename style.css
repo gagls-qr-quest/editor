@@ -1,8 +1,25 @@
 /* Vlastný vzhľad modulu Editor.
-   Spoločné farby a komponenty (qrq-input, qrq-label, qrq-btn …) sú v shared/v1/style.css.
-   Editor sa používa hlavne na počítači – môže byť širší (trieda qrq-main--wide).
-   Tlačová zostava QR kariet: pravidlá pre tlač patria do @media print { … }. */
+   Spoločné farby a komponenty (qrq-input, qrq-btn, qrq-card) sú v shared/v1/style.css.
+   Editor sa používa hlavne na počítači - tabulárne a formulárové rozloženia.
+   Tlačová zostava QR kariet: pravidlá pre @media print neskôr sem. */
 
 #obsah pre {
   font-size: 0.85rem;
+}
+
+#quest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#quest-form .qrq-label {
+  display: block;
+  margin-bottom: -0.6rem;
+}
+
+#quest-form .qrq-btn {
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
