@@ -1,5 +1,3 @@
-import { loadQuest } from 'https://gagls-qr-quest.github.io/shared/v1/quest.js';
-
 // Predvolené poschodia a stav editora
 let floors = [
   { id: 'p0', name: 'Prízemie', image: 'podorys-p0.svg' },
@@ -25,6 +23,33 @@ const btnCancelEdit = document.getElementById('btn-cancel-edit');
 
 const stationsHeading = document.getElementById('stations-heading');
 const stationsList = document.getElementById('stations-list');
+
+// Pomocná funkcia pre načítanie ukážkového questu zo shared modulu
+async function loadQuest(questId) {
+  const candidates = [
+    'https://gagls-qr-quest.github.io/shared/v1/qrq.js',
+    'https://gagls-qr-quest.github.io/shared/v1/index.js',
+    'https://gagls-qr-quest.github.io/shared/v1/app.js'
+  ];
+
+  for (const url of candidates) {
+    try {
+      const mod = await import(url);
+      if (typeof mod.loadQuest === 'function') {
+        return await mod.loadQuest(questId);
+      }
+    } catch (_) {
+      // skúsime ďalší možný názov modulu
+    }
+  }
+
+  // Záložné priame načítanie JSON súboru ukážky zo shared
+  const res = await fetch(`https://gagls-qr-quest.github.io/shared/v1/quests/${questId}.json`);
+  if (!res.ok) {
+    throw new Error(`Nepodarilo sa načítať quest ${questId} (${res.status})`);
+  }
+  return await res.json();
+}
 
 // Pomocná funkcia pre názov poschodia
 function getFloorName(floorId) {
